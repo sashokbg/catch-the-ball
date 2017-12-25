@@ -15,7 +15,6 @@ class Game():
         self.main_layer.add(self.ball)
     
         self.bouncer = Bouncer()
-        self.bouncer.position = 320, 10
         self.main_layer.add(self.bouncer)
 
         self.main_scene = Scene(self.main_layer)
