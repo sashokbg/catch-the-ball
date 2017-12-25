@@ -28,7 +28,6 @@ class Ball(Sprite):
         self.stop()
         self.do(Place((320,200)))
         self.doFall()
-        print("updated ball position {}".format(self.position))
 
     @property
     def speed(self):
