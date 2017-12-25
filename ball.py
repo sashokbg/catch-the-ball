@@ -6,14 +6,26 @@ import cocos.euclid as eu
 
 class Ball(Sprite):
 
-    def __init__(self, speed):
+    def __init__(self, speed=200, position = (320,200)):
         Sprite.__init__(self, 'img/ball_64x64.png')
         self.__speed = speed
+        self.position = position
         center_x, center_y = self.position
         self.cshape = cm.CircleShape(eu.Vector2(center_x, center_y), 32)
 
     def doFall(self):
         self.do(Repeat(MoveBy((0,-self.__speed), duration=2)))
+
+    def update(self, game):
+        if self.position[1] < 0:
+            game.looseLife()
+            self.reset()
+
+    def reset(self):
+        self.stop()
+        self.do(Place((320,200)))
+        self.doFall()
+        print("updated ball position {}".format(self.position))
 
     @property
     def speed(self):

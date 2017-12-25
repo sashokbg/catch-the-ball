@@ -11,9 +11,7 @@ class Game():
         director.init()
         self.main_layer = GameScreen(self)
 
-        self.ball = Ball(40)
-        self.ball.position = 320, 200
-    
+        self.ball = Ball()
         self.main_layer.add(self.ball)
     
         self.bouncer = Bouncer()
@@ -23,8 +21,10 @@ class Game():
         self.main_scene = Scene(self.main_layer)
 
     def update(self, delta_t):
-        pass
-#print("updated {}".format(self.ball.position))
+        self.ball.update(self)
+
+    def looseLife(self):
+        print("-1 lifes")
 
     def start(self):
         self.main_layer.schedule(self.update)
