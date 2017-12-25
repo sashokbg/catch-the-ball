@@ -22,8 +22,11 @@ class Game():
     def update(self, delta_t):
         self.ball.update(self)
 
-    def looseLife(self):
-        print("-1 lifes")
+    def loosePoint(self):
+        print("-1 points")
+
+    def winPoint(self):
+        print("+1 points")
 
     def start(self):
         self.main_layer.schedule(self.update)

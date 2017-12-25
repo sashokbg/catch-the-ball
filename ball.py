@@ -18,7 +18,7 @@ class Ball(Sprite):
 
     def update(self, game):
         if self.position[1] < 0:
-            game.looseLife()
+            game.loosePoint()
             self.reset()
 
     def reset(self):
