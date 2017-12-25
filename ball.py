@@ -7,7 +7,7 @@ import cocos.euclid as eu
 class Ball(Sprite):
 
     def __init__(self, speed):
-        Sprite.__init__(self, 'ball_64x64.png')
+        Sprite.__init__(self, 'img/ball_64x64.png')
         self.__speed = speed
         center_x, center_y = self.position
         self.cshape = cm.CircleShape(eu.Vector2(center_x, center_y), 32)
