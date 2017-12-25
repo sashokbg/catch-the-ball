@@ -1,5 +1,7 @@
 from cocos.sprite import Sprite
 from cocos.actions import *
+from cocos.collision_model import *
+import cocos.euclid as eu
 
 class Bouncer(Sprite):
 
@@ -11,6 +13,12 @@ class Bouncer(Sprite):
         Sprite.__init__(self, 'img/bouncer64x14.png')
         self.__speed = speed
         self.position = position
+        center_x, center_y = self.position
+        self.cshape = AARectShape(eu.Vector2(center_x, center_y), 32, 7)
+
+    def update(self):
+        center_x, center_y = self.position
+        self.cshape = AARectShape(eu.Vector2(center_x, center_y), 32, 7)
 
     def moveLeft(self):
         self.stop()

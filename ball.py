@@ -20,6 +20,9 @@ class Ball(Sprite):
         if self.position[1] < 0:
             game.loosePoint()
             self.reset()
+        
+        center_x, center_y = self.position
+        self.cshape = cm.CircleShape(eu.Vector2(center_x, center_y), 32)
 
     def reset(self):
         self.stop()
