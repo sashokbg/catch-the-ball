@@ -23,12 +23,12 @@ class Game():
         self.main_scene = Scene(self.main_layer)
 
     def update(self, delta_t):
-        print("updated {}".format(self.ball.position))
+        pass
+#print("updated {}".format(self.ball.position))
 
     def start(self):
         self.main_layer.schedule(self.update)
         self.ball.doFall()
-        self.bouncer.moveRight()
         director.run(self.main_scene)
 
 def main():
