@@ -3,12 +3,14 @@ from cocos.layer import Layer
 from cocos.scene import Scene
 from ball import Ball
 from bouncer import Bouncer
+from gamescreen import GameScreen
 
 class Game():
 
     def __init__(self):
         director.init()
-        self.main_layer = Layer()
+        self.main_layer = GameScreen(self)
+
         self.ball = Ball(40)
         self.ball.position = 320, 200
     
