@@ -9,7 +9,7 @@ from cocos.text import Label
 
 class Game():
 
-    def __init__(self):
+    def __init__(self, player = None):
         director.init()
         self.main_layer = GameScreen(self)
 
@@ -29,6 +29,8 @@ class Game():
         self.collision_manager.add(self.ball)
         self.collision_manager.add(self.bouncer)
 
+        self.player = player
+
     def update(self, delta_t):
         self.ball.update(self)
         self.bouncer.update()
@@ -38,10 +40,14 @@ class Game():
             self.winPoint()
             self.ball.reset()
 
+        if self.player:
+            self.player.update(self.ball, self.bouncer)
+
     def loosePoint(self):
         print("-1 points")
         self.score-=1
         self.score_label.element.text = "Score: {}".format(self.score)
+
     def winPoint(self):
         print("+1 points")
         self.score+=1
